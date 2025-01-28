@@ -1,7 +1,11 @@
 import { prisma } from "@/lib/prisma";
 
+export const revalidate = 5;
+
 export default async function Home() {
   const jobPosts = await prisma.jobPost.findMany();
+
+  console.info({ jobPosts });
 
   return (
     <div>
